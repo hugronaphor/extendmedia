@@ -1,0 +1,36 @@
+## icons from https://www.svgrepo.com/
+
+extendmedia_media_extra_attributes:
+  provider: extendmedia
+  ckeditor5:
+    plugins:
+      - drupalMedia.DrupalElementStyle
+    config:
+      drupalElementStyles:
+        loading:
+          - name: 'lazy'
+            title: 'Lazy'
+            icon: '<svg fill="#424242" width="64px" height="64px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_iconCarrier"><path d="M925.17 575.167c0-225.225-184.144-407.869-411.382-407.869-227.247 0-411.392 182.643-411.392 407.869s184.145 407.869 411.392 407.869c227.238 0 411.382-182.645 411.382-407.869zm40.96 0c0 247.922-202.557 448.829-452.342 448.829-249.794 0-452.352-200.906-452.352-448.829s202.558-448.829 452.352-448.829c249.785 0 452.342 200.908 452.342 448.829zM353.528 40.96H674.04c11.311 0 20.48-9.169 20.48-20.48S685.351 0 674.04 0H353.528c-11.311 0-20.48 9.169-20.48 20.48s9.169 20.48 20.48 20.48z"></path><path d="M493.305 20.48v129.577c0 11.311 9.169 20.48 20.48 20.48s20.48-9.169 20.48-20.48V20.48c0-11.311-9.169-20.48-20.48-20.48s-20.48 9.169-20.48 20.48z"></path><path d="M493.305 140.104v76.268c0 11.311 9.169 20.48 20.48 20.48s20.48-9.169 20.48-20.48v-76.268c0-11.311-9.169-20.48-20.48-20.48s-20.48 9.169-20.48 20.48zm-5.12 777.603v76.268c0 14.138 11.462 25.6 25.6 25.6s25.6-11.462 25.6-25.6v-76.268c0-14.138-11.462-25.6-25.6-25.6s-25.6 11.462-25.6 25.6zM95.312 595.647h76.902c11.311 0 20.48-9.169 20.48-20.48s-9.169-20.48-20.48-20.48H95.312c-11.311 0-20.48 9.169-20.48 20.48s9.169 20.48 20.48 20.48zm770.676 0h76.902c11.311 0 20.48-9.169 20.48-20.48s-9.169-20.48-20.48-20.48h-76.902c-11.311 0-20.48 9.169-20.48 20.48s9.169 20.48 20.48 20.48zm-338.212-44.468L358.755 383.53c-8.03-7.965-20.998-7.912-28.963.118s-7.912 20.998.118 28.963L498.931 580.26c8.03 7.965 20.998 7.912 28.963-.118s7.912-20.998-.118-28.963z"></path></g></svg>'
+            attributeName: 'data-loading'
+            attributeValue: 'lazy'
+            modelElements: [ 'drupalMedia' ]
+          - name: 'eager'
+            title: 'Eager(good for when media is in initial viewport)'
+            icon: '<svg version="1.1" id="Layer_3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 4.83 50 49.68" enable-background="new 0 4.83 50 49.68" xml:space="preserve" fill="#424242"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_iconCarrier"> <rect x="1.438" y="6.232" fill="none" stroke="#424242" stroke-linecap="round" stroke-linejoin="round" width="47.125" height="46.875"></rect> <polyline fill="none" stroke="#424242" stroke-linecap="round" stroke-linejoin="round" points="1.755,44.13 14.375,31.875 23.5,38.625 37.25,23.125 48.25,31.625 "></polyline> <path fill="none" stroke="#445578" stroke-linecap="round" stroke-linejoin="round" d="M42.169,24.085 c0.364-0.791,0.567-1.67,0.567-2.598c0-3.444-2.792-6.236-6.236-6.236s-6.236,2.792-6.236,6.236c0,1.51,0.537,2.895,1.431,3.975"></path> </g></svg>'
+            attributeName: 'data-loading'
+            attributeValue: 'eager'
+            modelElements: [ 'drupalMedia' ]
+      drupalMedia:
+        toolbar:
+          - name: 'drupalMedia:loading'
+            display: 'splitButton'
+            items:
+              - 'drupalElementStyle:loading:lazy'
+              - 'drupalElementStyle:loading:eager'
+            defaultItem: 'drupalElementStyle:loading:lazy'
+  drupal:
+    label: Extend Media
+    elements:
+      - <drupal-media data-loading>
+    conditions:
+      plugins: [media_media]

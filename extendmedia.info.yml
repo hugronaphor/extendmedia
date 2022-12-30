@@ -1,0 +1,7 @@
+name: Extend Media
+type: module
+description: Provides Media related features.
+core_version_requirement: ^10
+package: Media
+dependencies:
+  - drupal:media

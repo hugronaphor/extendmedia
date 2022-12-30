@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @file
+ * Main module file.
+ */
+
+use Drupal\Core\Render\Element;
+
+/**
+ * Implements hook_preprocess_media().
+ *
+ * Overrides loading attribute of a media image.
+ */
+function extendmedia_preprocess_media(array &$variables): void {
+  $dataAttribute = 'data-loading';
+  $attributeVal = $variables['attributes'][$dataAttribute] ?? FALSE;
+  $elements = Element::children($variables['elements']);
+  $attributeVal && array_walk($elements, function ($elKey) use (&$variables, $dataAttribute, $attributeVal) {
+    $contentEl = $variables['content'][$elKey] ?? FALSE;
+    $contentElChildren = FALSE;
+    $contentEl && $contentElChildren = Element::children($contentEl);
+    $contentElChildren && array_walk($contentElChildren, function ($contentElKey) use (&$variables, $dataAttribute, $attributeVal, $elKey) {
+      $variables['content'][$elKey][$contentElKey]['#item_attributes']['loading'] = $attributeVal;
+    });
+  });
+}
